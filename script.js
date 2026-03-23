@@ -72,3 +72,35 @@ document.getElementById("download").onclick = () => {
 
   URL.revokeObjectURL(url);
 };
+
+
+document.getElementById("downloadPng").onclick = () => {
+  const svg = document.getElementById("roundel");
+  const serializer = new XMLSerializer();
+  const svgString = serializer.serializeToString(svg);
+
+  // Create a blob URL for the SVG
+  const svgBlob = new Blob([svgString], { type: "image/svg+xml;charset=utf-8" });
+  const url = URL.createObjectURL(svgBlob);
+
+  const img = new Image();
+  img.onload = () => {
+    const canvas = document.createElement("canvas");
+    canvas.width = 400;
+    canvas.height = 400;
+
+    const ctx = canvas.getContext("2d");
+    ctx.drawImage(img, 0, 0);
+
+    URL.revokeObjectURL(url);
+
+    // Export PNG
+    const pngUrl = canvas.toDataURL("image/png");
+    const a = document.createElement("a");
+    a.href = pngUrl;
+    a.download = "roundel.png";
+    a.click();
+  };
+
+  img.src = url;
+};
