@@ -1,148 +1,70 @@
-*,
-*::before,
-*::after {
+/* Reset */
+* {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  margin: 0;
-  min-height: 100vh;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: #f3f4f6;
-  color: #111827;
+  font-family: system-ui, Arial, sans-serif;
+  background: #f4f4f4;
+  padding: 20px;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  gap: 30px;
 }
 
-.app {
-  max-width: 960px;
-  width: 100%;
-  padding: 24px;
+/* Roundel container */
+#roundel {
+  display: block;
+  width: 400px;
+  height: 400px;
 }
 
-header {
-  text-align: center;
-  margin-bottom: 24px;
-}
-
-header h1 {
-  margin: 0 0 4px;
-  font-size: 1.8rem;
-}
-
-header p {
-  margin: 0;
-  color: #6b7280;
-  font-size: 0.95rem;
-}
-
-.content {
-  display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-  gap: 24px;
-  align-items: center;
-}
-
-.preview {
-  background: white;
-  border-radius: 16px;
-  padding: 16px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
+/* Controls layout */
 .controls {
-  background: white;
-  border-radius: 16px;
-  padding: 16px 18px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
   display: flex;
   flex-direction: column;
   gap: 12px;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  width: 320px;
+  border: 1px solid #ddd;
 }
 
-.control-group {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  font-size: 0.9rem;
-}
-
-.control-group span {
+.controls label {
   font-weight: 600;
-  color: #374151;
+  margin-bottom: 4px;
 }
 
-input[type="color"] {
+.controls input[type="color"],
+.controls input[type="text"] {
   width: 100%;
-  height: 36px;
-  border-radius: 8px;
-  border: 1px solid #d1d5db;
-  padding: 0;
-  background: transparent;
+  padding: 6px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
 }
 
-input[type="text"] {
-  padding: 8px 10px;
-  border-radius: 8px;
-  border: 1px solid #d1d5db;
-  font-size: 0.95rem;
-}
-
-input[type="text"]:focus,
-input[type="color"]:focus {
-  outline: 2px solid #2563eb;
-  outline-offset: 1px;
-  border-color: #2563eb;
-}
-
-.preset-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-top: 4px;
-}
-
-button {
-  border-radius: 999px;
-  border: 1px solid #d1d5db;
-  background: #f9fafb;
-  padding: 6px 12px;
-  font-size: 0.8rem;
+.controls button {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: none;
+  background: #ddd;
   cursor: pointer;
-  transition: background 0.15s ease, transform 0.05s ease, box-shadow 0.15s ease;
+  font-weight: 600;
 }
 
-button:hover {
-  background: #e5e7eb;
+.controls button:hover {
+  background: #ccc;
 }
 
-button:active {
-  transform: translateY(1px);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08) inset;
-}
-
-button.primary {
-  margin-top: 8px;
-  align-self: flex-start;
-  background: #2563eb;
+.controls button.primary {
+  background: #0078ff;
   color: white;
-  border-color: #2563eb;
 }
 
-button.primary:hover {
-  background: #1d4ed8;
-}
-
-@media (max-width: 768px) {
-  .content {
-    grid-template-columns: 1fr;
-  }
-
-  .preview {
-    order: -1;
-  }
+.controls button.primary:hover {
+  background: #0064d6;
 }
