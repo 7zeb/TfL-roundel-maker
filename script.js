@@ -1,7 +1,6 @@
 const ring = document.getElementById("ring");
 const bar = document.getElementById("bar");
 const label = document.getElementById("label");
-
 const ringColorInput = document.getElementById("ringColor");
 const barColorInput = document.getElementById("barColor");
 const textColorInput = document.getElementById("textColor");
